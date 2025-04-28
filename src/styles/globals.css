@@ -1,2 +1,10 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+/* globals.css */
+
+/* Import all of Tailwind (preflight, theme, utilities) in one call */
+@import "tailwindcss";
+
+/* your custom overrides go below */
+body {
+  font-family: "Inter", sans-serif;
+}
+

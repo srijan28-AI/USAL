@@ -1,0 +1,30 @@
+/* src/styles/aboutpage.css */
+
+/* Header */
+.header { 
+  background: #fff;
+  /* … all your old header rules … */
+}
+
+/* Navigation */
+.nav { 
+  display: flex;
+  /* … */
+}
+
+/* Hero */
+.hero { 
+  /* … */
+}
+
+/* Sections */
+.section { 
+  /* … */
+}
+
+/* Footer */
+.footer {
+  /* … */
+}
+
+/* And so on… */

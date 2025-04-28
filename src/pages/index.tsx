@@ -1,139 +1,272 @@
-import Head from 'next/head';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
+// src/pages/index.tsx
+'use client'
+
+import Head from 'next/head'
+import Image from 'next/image'
+import { useEffect } from 'react'
+import { FaYoutube, FaFacebook, FaTelegram, FaTiktok, FaInstagram } from 'react-icons/fa'
 
 export default function Home() {
+  useEffect(() => {
+    async function fetchFollowers() {
+      // Example for YouTube
+      const youtubeResponse = await fetch('/api/youtube-followers');
+      const youtubeData = await youtubeResponse.json();
+      const youtubeElement = document.getElementById('youtube-followers');
+      if (youtubeElement) {
+        youtubeElement.innerText = youtubeData.followers;
+      }
+
+      // Example for Facebook
+      const facebookResponse = await fetch('/api/facebook-followers');
+      const facebookData = await facebookResponse.json();
+      const facebookElement = document.getElementById('facebook-followers');
+      if (facebookElement) {
+        facebookElement.innerText = facebookData.followers;
+      }
+
+      // Add similar API calls for Telegram, TikTok, and Instagram
+    }
+
+    fetchFollowers();
+  }, []);
+
   return (
     <>
       <Head>
-        <title>USAL – USA Self Learn</title>
+        <title>USA Self Learn</title>
         <meta
           name="description"
-          content="USAL is a student-led platform from Nepal guiding students to apply to U.S. universities — no agents, just support."
+          content="USA Self Learn (USAL) is an online community dedicated to providing valuable information and resources for students planning to study in the United States."
         />
       </Head>
 
-      <Navbar />
+      <main className="bg-gray-50">
+        {/* Hero Section */}
+        <section className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto py-16 px-6">
+          {/* Left Content */}
+          <div className="md:w-1/2 text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+              USA Self Learn
+            </h1>
+            <p className="text-lg text-gray-700 mb-6">
+              "Building Path To Success, Together"
+            </p>
+            <p className="text-gray-600 mb-8">
+              USA Self Learn (USAL) is an online community dedicated to
+              providing valuable information and resources for students planning
+              to study in the United States or currently residing there. Our
+              content includes podcasts featuring discussions on campus life,
+              scholarships, visa tips, and personal experiences from students
+              and professionals.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/universities"
+                className="inline-block bg-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-900 transition"
+              >
+                Universities
+              </a>
+              <a
+                href="/resources"
+                className="inline-block bg-pink-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-pink-600 transition"
+              >
+                Resources
+              </a>
+              <a
+                href="/interview-questions"
+                className="inline-block border-2 border-blue-800 text-blue-800 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-800 hover:text-white transition"
+              >
+                Interview Questions
+              </a>
+            </div>
+          </div>
 
-      <main className="min-h-screen bg-white text-gray-800">
-        {/* Hero */}
-        <section className="text-center py-20 px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-4xl md:text-5xl font-extrabold text-[#002868] mb-4"
-          >
-            Empowering Dreams. Guiding Futures. 🇺🇸
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
-          >
-            USAL helps students from Nepal apply to U.S. universities with confidence — no agents, just real guidance, free resources, and community support.
-          </motion.p>
-        </section>
-
-        {/* Info Cards */}
-        <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 pb-20">
-          {infoCards.map((card, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="bg-white border-l-[6px] rounded-xl shadow-md hover:shadow-xl p-6 transition-all"
-              style={{ borderColor: card.color }}
-            >
-              <h2 className="text-xl font-bold mb-2" style={{ color: card.color }}>
-                {card.icon} {card.title}
-              </h2>
-              <p className="text-gray-700 text-sm">{card.content}</p>
-              {card.list && (
-                <ul className="list-disc mt-3 ml-6 text-sm text-gray-600 space-y-1">
-                  {card.list.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              )}
-            </motion.div>
-          ))}
-        </section>
-
-        {/* Stats */}
-        <section className="py-10 bg-gray-50 border-y">
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, idx) => (
-              <div key={idx}>
-                <p className="text-3xl font-bold text-[#002868]">{stat.value}</p>
-                <p className="text-sm text-gray-700 mt-1">{stat.label}</p>
-              </div>
-            ))}
+          {/* Right Content */}
+          <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
+            <Image
+              src="/usal.jpg"
+              alt="USA Self Learn Logo"
+              width={400}
+              height={400}
+              className="rounded-full shadow-lg"
+            />
           </div>
         </section>
 
-        {/* CTA */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="text-center py-20 px-6 bg-gradient-to-r from-[#002868] to-[#BF0A30] text-white"
-        >
-          <h3 className="text-2xl md:text-3xl font-semibold mb-4">
-            🎯 Ready to start your U.S. journey?
-          </h3>
-          <button className="bg-white text-[#002868] px-6 py-3 font-semibold rounded-full shadow hover:scale-105 transition-transform">
-            Explore Universities
-          </button>
-        </motion.section>
+        {/* Connect With Us Section */}
+        <section className="bg-gray-50 py-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-blue-900 mb-6">
+              Join Our Community
+            </h2>
+            <p className="text-center text-gray-600 mb-12">
+              Follow us on social media to stay updated with the latest
+              information and resources
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+              {/* YouTube */}
+              <div>
+                <a
+                  href="https://www.youtube.com/@Usaselfapply"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaYoutube className="text-red-600 text-6xl mx-auto mb-4 hover:scale-110 transition-transform" />
+                </a>
+                <h3 className="text-lg font-semibold text-blue-900">YouTube</h3>
+                <p className="text-gray-600">
+                  <span id="youtube-followers">Loading...</span> Subscribers
+                </p>
+              </div>
+              {/* Facebook */}
+              <div>
+                <a
+                  href="https://www.facebook.com/share/g/1BShbwhUkC/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook className="text-blue-600 text-6xl mx-auto mb-4 hover:scale-110 transition-transform" />
+                </a>
+                <h3 className="text-lg font-semibold text-blue-900">Facebook</h3>
+                <p className="text-gray-600">
+                  <span id="facebook-followers">Loading...</span> Members
+                </p>
+              </div>
+              {/* Telegram */}
+              <div>
+                <a
+                  href="https://t.me/+K9Qhk2C3zwM4ODQ9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaTelegram className="text-blue-500 text-6xl mx-auto mb-4 hover:scale-110 transition-transform" />
+                </a>
+                <h3 className="text-lg font-semibold text-blue-900">Telegram</h3>
+                <p className="text-gray-600">
+                  <span id="telegram-followers">Loading...</span> Members
+                </p>
+              </div>
+              {/* TikTok */}
+              <div>
+                <a
+                  href="https://www.tiktok.com/@usa.self.learn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaTiktok className="text-black text-6xl mx-auto mb-4 hover:scale-110 transition-transform" />
+                </a>
+                <h3 className="text-lg font-semibold text-blue-900">TikTok</h3>
+                <p className="text-gray-600">
+                  <span id="tiktok-followers">Loading...</span> Followers
+                </p>
+              </div>
+              {/* Instagram */}
+              <div>
+                <a
+                  href="https://www.instagram.com/usa.selflearn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram className="text-pink-500 text-6xl mx-auto mb-4 hover:scale-110 transition-transform" />
+                </a>
+                <h3 className="text-lg font-semibold text-blue-900">Instagram</h3>
+                <p className="text-gray-600">
+                  <span id="instagram-followers">Loading...</span> Followers
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Community Resources Section */}
+        <section className="bg-white py-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-blue-900 mb-6">
+              Community Resources
+            </h2>
+            <p className="text-center text-gray-600 mb-12">
+              Explore our various platforms and resources to enhance your learning journey
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* YouTube Card */}
+              <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center">
+                <Image
+                  src="/youtube.png"
+                  alt="YouTube Channel"
+                  width={300}
+                  height={100}
+                  className="rounded-lg mb-4"
+                />
+                <h3 className="text-xl font-semibold text-blue-900 mb-2">
+                  YouTube Channel
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Watch our informative videos about studying in the USA, visa processes, and university selection.
+                </p>
+                <a
+                  href="https://www.youtube.com/@Usaselfapply"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-900 transition"
+                >
+                  Visit Channel
+                </a>
+              </div>
+
+              {/* Facebook Card */}
+              <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center">
+                <Image
+                  src="/facebook.png"
+                  alt="Facebook Group"
+                  width={300}
+                  height={200}
+                  className="rounded-lg mb-4"
+                />
+                <h3 className="text-xl font-semibold text-blue-900 mb-2">
+                  Facebook Group
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Join our active community to connect with other students and get your questions answered.
+                </p>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-900 transition"
+                >
+                  Join Group
+                </a>
+              </div>
+
+              {/* Telegram Card */}
+              <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center">
+                <Image
+                  src="/telegram.png"
+                  alt="Telegram Channel"
+                  width={300}
+                  height={200}
+                  className="rounded-lg mb-4"
+                />
+                <h3 className="text-xl font-semibold text-blue-900 mb-2">
+                  Telegram Channel
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Get instant updates and resources directly on your phone through our Telegram channel.
+                </p>
+                <a
+                  href="https://t.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-900 transition"
+                >
+                  Join Channel
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-
-      <Footer />
     </>
-  );
+  )
 }
-
-const infoCards = [
-  {
-    icon: '🌍',
-    title: 'About the USA',
-    content: 'The U.S. is a top destination for education, offering diversity, innovation, and career-ready programs.',
-    color: '#002868',
-  },
-  {
-    icon: '🛂',
-    title: 'What is an F-1 Visa?',
-    content: 'An F-1 visa lets international students live and study in the U.S., with access to CPT (internships) and OPT (post-grad work).',
-    color: '#BF0A30',
-  },
-  {
-    icon: '💼',
-    title: 'What are OPT & CPT?',
-    content: 'CPT allows internships during study; OPT gives up to 12–36 months of work after graduation based on your degree.',
-    color: '#F59E0B',
-  },
-  {
-    icon: '🚀',
-    title: 'About USAL',
-    content: 'USAL is Nepal’s student-powered platform for applying to U.S. universities — no agents needed.',
-    color: '#10B981',
-    list: [
-      'University shortlisting & tools',
-      'Mock visa interview prep',
-      'Real community experiences',
-      'Always free — no agency fees',
-    ],
-  },
-];
-
-const stats = [
-  { label: 'Students Helped', value: '500+' },
-  { label: 'Visa Success Rate', value: '95%' },
-  { label: 'Mock Interviews', value: '300+' },
-  { label: 'Universities Listed', value: '100+' },
-];

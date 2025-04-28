@@ -1,35 +1,35 @@
-'use client';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+// src/components/UniversityCard.tsx
+'use client'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 
-type UniversityCardProps = {
-  name: string;
-  location: string;
-  fee: string;
-  link?: string;
-};
+type Props = {
+  name: string
+  location: string
+  fee: string
+  ielts: string
+  sat: string
+  scholarship: string
+  link: string
+}
 
-export default function UniversityCard({ name, location, fee, link }: UniversityCardProps) {
+export default function UniversityCard({ name, location, fee, ielts, sat, scholarship, link }: Props) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
-      transition={{ type: 'spring', stiffness: 300 }}
-      className="rounded-xl p-5 border border-gray-200 bg-white shadow-sm hover:shadow-lg transition duration-300"
+      className="relative border border-gray-300 rounded-lg p-6 shadow-sm transition"
     >
-      <h3 className="text-lg font-semibold text-[#002868]">{name}</h3>
+      <h3 className="font-semibold text-lg text-[#002868]">{name}</h3>
       <p className="text-sm text-gray-600">{location}</p>
-      <p className="text-sm mt-1">
-        <span className="font-medium">Application Fee:</span> {fee}
-      </p>
-      {link && (
-        <Link
-          href={link}
-          target="_blank"
-          className="text-sm text-[#BF0A30] font-medium hover:underline inline-block mt-2"
-        >
-          Visit Website →
-        </Link>
-      )}
+      <p className="text-sm text-gray-600">Fee: {fee}</p>
+      <div className="opacity-0 hover:opacity-100 absolute inset-0 bg-white bg-opacity-90 flex flex-col justify-center items-center p-4 text-gray-800 transition">
+        <p>IELTS: {ielts}</p>
+        <p>SAT: {sat}</p>
+        <p>{scholarship}</p>
+      </div>
+      <Link href={link} target="_blank" className="mt-3 inline-block text-sm text-blue-600 hover:underline">
+        Visit Website →
+      </Link>
     </motion.div>
-  );
+  )
 }
