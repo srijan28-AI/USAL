@@ -41,7 +41,7 @@ export default function Home() {
         />
       </Head>
 
-      <main className="bg-gray-50">
+      <main className="bg-gray-50 animate-fade-in">
         {/* Hero Section */}
         <section className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto py-16 px-6">
           {/* Left Content */}
@@ -89,7 +89,7 @@ export default function Home() {
               alt="USA Self Learn Logo"
               width={400}
               height={400}
-              className="rounded-full shadow-lg"
+              className="rounded-full shadow-lg animate-float"
             />
           </div>
         </section>

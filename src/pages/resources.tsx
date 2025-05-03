@@ -3,7 +3,7 @@
 
 import Head from 'next/head'
 import { motion } from 'framer-motion'
-import { FaFileAlt } from 'react-icons/fa'
+import { FaFileAlt, FaQuestionCircle } from 'react-icons/fa'
 
 interface Resource {
   title: string
@@ -16,44 +16,50 @@ const resources: Resource[] = [
   {
     title: 'IELTS',
     description: 'Comprehensive preparation materials for the IELTS exam.',
-    viewHref: '/resources/ielts', // URL for viewing IELTS materials
+    viewHref: '/resources/ielts',
     icon: <FaFileAlt className="h-8 w-8 text-indigo-500" />,
   },
   {
     title: 'PTE',
     description: 'Study guides and practice tests for the PTE Academic.',
-    viewHref: '/resources/pte', // URL for viewing PTE materials
+    viewHref: '/resources/pte',
     icon: <FaFileAlt className="h-8 w-8 text-green-500" />,
   },
   {
     title: 'GRE',
     description: 'Preparation materials for the GRE graduate admissions test.',
-    viewHref: '/resources/gre', // URL for viewing GRE materials
+    viewHref: '/resources/gre',
     icon: <FaFileAlt className="h-8 w-8 text-pink-500" />,
   },
   {
     title: 'Duolingo',
     description: 'Fast & convenient prep materials for the Duolingo English Test.',
-    viewHref: '/resources/duolingo', // URL for viewing Duolingo materials
+    viewHref: '/resources/duolingo',
     icon: <FaFileAlt className="h-8 w-8 text-yellow-500" />,
   },
   {
     title: 'GMAT',
     description: 'Official guides and practice GMAT questions.',
-    viewHref: '/resources/gmat', // URL for viewing GMAT materials
+    viewHref: '/resources/gmat',
     icon: <FaFileAlt className="h-8 w-8 text-red-500" />,
   },
   {
     title: 'SAT eBook',
     description: 'A complete PDF guide to the SAT—tips, practice tests, and strategies.',
-    viewHref: '/resources/sat', // URL for viewing SAT materials
+    viewHref: '/resources/sat',
     icon: <FaFileAlt className="h-8 w-8 text-blue-500" />,
   },
   {
-    title: 'Visa Questions Guide',
+    title: 'Visa Quest',
     description: 'A special guide by USA for visa interview preparation.',
-    viewHref: '/resources/visa-questions', // URL for viewing Visa Questions materials
+    viewHref: '/resources/visaquest',
     icon: <FaFileAlt className="h-8 w-8 text-purple-500" />,
+  },
+  {
+    title: 'Interview Questions',
+    description: 'Prepare for your interviews with our curated list of common questions.',
+    viewHref: '/resources/interview-questions',
+    icon: <FaQuestionCircle className="h-8 w-8 text-orange-500" />,
   },
 ]
 
