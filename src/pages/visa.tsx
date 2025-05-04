@@ -2,6 +2,7 @@
 'use client'
 
 import Head from 'next/head'
+import Link from 'next/link'
 import { FaUniversity, FaDollarSign, FaFileAlt, FaCalendarAlt, FaFolderOpen, FaPlane } from 'react-icons/fa'
 
 export default function VisaPage() {
@@ -74,6 +75,15 @@ export default function VisaPage() {
               <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* Navigation Button */}
+        <div className="mt-16 text-center">
+          <Link href="/resources">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+              Explore Visa Resources
+            </button>
+          </Link>
         </div>
       </main>
     </>

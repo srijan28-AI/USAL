@@ -3,6 +3,7 @@
 
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect } from 'react'
 import { FaYoutube, FaFacebook, FaTelegram, FaTiktok, FaInstagram } from 'react-icons/fa'
 
@@ -50,7 +51,7 @@ export default function Home() {
               USA Self Learn
             </h1>
             <p className="text-lg text-gray-700 mb-6">
-              "Building Path To Success, Together"
+              &quot;Building Path To Success, Together&quot;
             </p>
             <p className="text-gray-600 mb-8">
               USA Self Learn (USAL) is an online community dedicated to
@@ -61,24 +62,24 @@ export default function Home() {
               and professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
+              <Link
                 href="/universities"
                 className="inline-block bg-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-900 transition"
               >
                 Universities
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/resources"
                 className="inline-block bg-pink-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-pink-600 transition"
               >
                 Resources
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/interview-questions"
                 className="inline-block border-2 border-blue-800 text-blue-800 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-800 hover:text-white transition"
               >
                 Interview Questions
-              </a>
+              </Link>
             </div>
           </div>
 

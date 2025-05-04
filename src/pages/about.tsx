@@ -3,6 +3,7 @@
 
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGraduationCap, FaPassport, FaUsers, FaBook, FaChalkboardTeacher, FaGlobe } from 'react-icons/fa'
@@ -192,24 +193,14 @@ export default function AboutPage() {
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-4">
               <li>
-                <a
-                  href="/university"
-                  className="text-blue-600 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="/universities" className="text-blue-600 hover:underline">
                   How to choose the right university for your goals.
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/visa"
-                  className="text-blue-600 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="/visa" className="text-blue-600 hover:underline">
                   Step-by-step guidance on applying for a student visa.
-                </a>
+                </Link>
               </li>
               <li>Tips for finding and applying for scholarships.</li>
               <li>Understanding the cost of living and budgeting as a student.</li>

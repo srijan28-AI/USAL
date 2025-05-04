@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import {
   FaFacebookF,
   FaTelegramPlane,
@@ -69,11 +70,11 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold text-white mb-4 border-l-4 border-blue-500 pl-2">Quick Links</h3>
           <ul className="space-y-2">
-            <li><a href="/" className="hover:text-white transition">› Home</a></li>
-            <li><a href="/universities" className="hover:text-white transition">› University Selection</a></li>
-            <li><a href="/visa" className="hover:text-white transition">› USA Visa Process</a></li>
-            <li><a href="/resources" className="hover:text-white transition">› Universities</a></li>
-            <li><a href="/ebook" className="hover:text-white transition">› E‑book</a></li>
+            <li><Link href="/" className="hover:text-white transition">› Home</Link></li>
+            <li><Link href="/universities" className="hover:text-white transition">› University Selection</Link></li>
+            <li><Link href="/visa" className="hover:text-white transition">› USA Visa Process</Link></li>
+            <li><Link href="/resources" className="hover:text-white transition">› Universities</Link></li>
+            <li><Link href="/ebook" className="hover:text-white transition">› E‑book</Link></li>
           </ul>
         </div>
 
@@ -81,11 +82,11 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold text-white mb-4 border-l-4 border-blue-500 pl-2">Useful Links</h3>
           <ul className="space-y-2">
-            <li><a href="/about" className="hover:text-white transition">› About Us</a></li>
-            <li><a href="/blog" className="hover:text-white transition">› News & Blog</a></li>
-            <li><a href="/resources" className="hover:text-white transition">› Our Resource</a></li>
-            <li><a href="/universities" className="hover:text-white transition">› University</a></li>
-            <li><a href="/ebook" className="hover:text-white transition">› E‑book</a></li>
+            <li><Link href="/about" className="hover:text-white transition">› About Us</Link></li>
+            <li><Link href="/blog" className="hover:text-white transition">› News & Blog</Link></li>
+            <li><Link href="/resources" className="hover:text-white transition">› Our Resource</Link></li>
+            <li><Link href="/universities" className="hover:text-white transition">› University</Link></li>
+            <li><Link href="/ebook" className="hover:text-white transition">› E‑book</Link></li>
           </ul>
         </div>
 
@@ -135,9 +136,9 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} USA Self Learn (USAL). All rights reserved.</p>
           <div className="space-x-6 mt-4 md:mt-0">
-            <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
-            <a href="/terms" className="hover:text-white transition">Terms of Service</a>
-            <a href="/cookies" className="hover:text-white transition">Cookie Policy</a>
+            <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
+            <Link href="/cookies" className="hover:text-white transition">Cookie Policy</Link>
           </div>
         </div>
       </div>

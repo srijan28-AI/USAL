@@ -2,6 +2,7 @@
 'use client'
 
 import Head from 'next/head'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FaFileAlt, FaQuestionCircle } from 'react-icons/fa'
 
@@ -106,14 +107,12 @@ export default function ResourcesPage() {
                 <p className="text-gray-600 flex-grow">{r.description}</p>
                 <div className="mt-6">
                   {r.viewHref && (
-                    <a
+                    <Link
                       href={r.viewHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center bg-blue-600 text-white rounded-full px-4 py-2 hover:bg-blue-700 transition"
                     >
                       View Materials
-                    </a>
+                    </Link>
                   )}
                 </div>
               </motion.div>

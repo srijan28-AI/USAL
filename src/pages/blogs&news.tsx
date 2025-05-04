@@ -140,7 +140,7 @@ export default function BlogsAndNews() {
                 Understanding US Universities
               </h2>
               <p className="text-gray-600 mb-8">
-                The American higher education system offers a diverse range of institutions with unique characteristics, admission requirements, and academic programs. Here's what you need to know:
+                The American higher education system offers a diverse range of institutions with unique characteristics, admission requirements, and academic programs. Here&apos;s what you need to know:
               </p>
               <div className="space-y-6">
                 {/* Item 1 */}
@@ -163,7 +163,7 @@ export default function BlogsAndNews() {
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">Degree Programs</h3>
                     <p className="text-gray-600">
-                      US universities offer Associate's (2 years), Bachelor's (4 years), Master's (1-2 years), and Doctoral degrees (3+ years) across various disciplines and specializations.
+                      US universities offer Associate&apos;s (2 years), Bachelor&apos;s (4 years), Master&apos;s (1–2 years), and Doctoral degrees (3+ years) across various disciplines and specializations.
                     </p>
                   </div>
                 </div>
