@@ -1,13 +1,19 @@
 // pages/_app.tsx
 import '@/styles/globals.css'
-import '@/styles/aboutpage.css'    // ← pull in your old about‑page styles here
+import '@/styles/aboutpage.css'
 import type { AppProps } from 'next/app'
 import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ChatBot from '@/components/ChatBot'
+import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+
+  // Hide Navbar and Footer on the landing page ("/")
+  const isLandingPage = router.pathname === '/'
+
   return (
     <>
       {/* Chatbase embed */}
@@ -33,9 +39,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
 
-      <Navbar />
+      {/* Conditionally render Navbar and Footer */}
+      {!isLandingPage && <Navbar />}
       <Component {...pageProps} />
-      <Footer />
+      {!isLandingPage && <Footer />}
       <ChatBot />
     </>
   )
